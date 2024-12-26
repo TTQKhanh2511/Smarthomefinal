@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="shortcut icon" href="#">
+    <title>Smart home</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Side bar -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="img/2922393.png" alt="home">
+                    <h2>Smart<span class="danger"> Home</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-outlined">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#" class="active" onclick="switchPage(event, 'dashboard')">
+                    <span class="material-icons-outlined">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- End of sidebar -->
+
+        <!-- Main content -->
+        <main>
+            <!-- Sensors -->
+            <div class="nav">
+                <div class="right-nav">
+                    <button id="menu-btn">
+                        <span class="material-icons-outlined">
+                            menu
+                        </span>
+                    </button>
+                    <div class="dark-mode">
+                        <span class="material-icons-outlined active">
+                            light_mode
+                        </span>
+                        <span class="material-icons-outlined">
+                            dark_mode
+                        </span>
+                    </div>
+
+                    <div class="profile">
+                        <div class="info">
+                            <p><b>Admin</b></p>
+                            <small class="text-muted">Welcome</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="img/248444142_891818821723546_4752748802489145693_n.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="dashboard">
+                <div class="sensor">
+                    <div class="temperature">
+                        <div class="status">
+                            <div class="info">
+                                <h3>Temperature</h3>
+                                <div class="unit">
+                                    <h1 id="temp">00</h1>
+                                    <h1>°C</h1>
+                                </div>
+                            </div>
+                            <div class="sensor-icon">
+                                <img src="img/thermometer.png" alt="temp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="humidity">
+                        <div class="status">
+                            <div class="info">
+                                <h3>Humidity</h3>
+                                <div class="unit">
+                                    <h1 id="hum">00</h1>
+                                    <h1>%</h1>
+                                </div>
+                            </div>
+                            <div class="sensor-icon">
+                                <img src="img/humidity.png" alt="hum">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brightness">
+                        <div class="status">
+                            <div class="info">
+                                <h3>Brightness</h3>
+                                <div class="unit">
+                                    <h1 id="bright">00</h1>
+                                    <h1>Lux</h1>
+                                </div>
+                            </div>
+                            <div class="sensor-icon">
+                                <img src="img/brightness.png" alt="bright">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="datetime-display">
+                        <div class="time-display">
+                            <h1 class="hdisplay">00</h1>
+                            <h1>:</h1>
+                            <h1 class="mdisplay">00</h1>
+                            <span class="sdisplay">00</span>
+                        </div>
+                        <div class="date-display">
+                            <h3 class="day-display"></h3>
+                            <h3 class="month-display"></h3>
+                            <h3 class="year-display"></h3>
+                        </div>
+                        <div class="delivery-swither">
+                            <label class="btn-color-mode-switch">
+                                <input type="checkbox" name="color_mode" id="color_mode">
+                                <label for="color_mode" data-on="Auto" data-off="Manual"
+                                    class="btn-color-mode-switch-inner"></label>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controller -->
+                <div class="controller">
+                    <div class="controller_device">
+                        <div class="device">
+                            <div class="furn" id="bulb">
+                                <div class="side1">
+                                    <img src="img/light-off.png" alt="bulb img" id="bulb-img">
+                                </div>
+                                <div class="side2">
+                                    <h1>Bulb</h1>
+                                    <h2 id="bulb-status">OFF</h2>
+                                    <label class="switch">
+                                        <input type="checkbox" id="bulb-btn">
+                                        <span class="toggle-btn"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="furn" id="fan">
+                                <div class="side1">
+                                    <img src="img/fan-off.png" alt="fan img" id="fan-img">
+                                </div>
+                                <div class="side2">
+                                    <h1>Fan</h1>
+                                    <h2 id="fan-status">OFF</h2>
+                                    <label class="switch">
+                                        <input type="checkbox" id="fan-btn">
+                                        <span class="toggle-btn"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="furn" id="people">
+                                <div class="side1">
+                                    <img src="img/878516.png" alt="people img" id="people-img">
+                                </div>
+                                <div class="side2">
+                                    <h1>Human</h1>
+                                    <div id="people-status">1</div>
+                                    <h2>Người</h2>
+                                    <!-- <label class="switch">
+                                        <input type="checkbox" id="pump-btn">
+                                        <span class="toggle-btn"></span>
+                                    </label> -->
+                                </div>
+                            </div>
+                            <div class="deviceinfo">
+                                <table>
+                                    <thead>
+                                        <tr style="font-weight: 700; line-height: 20px; font-size: 20px;">
+                                            <th>Device</th>
+                                            <!-- <th>Volt (V)</th> -->
+                                            <th>Ampe (mA)</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="font-weight: 700; line-height: 20px; font-size: 20px;">
+                                        <tr>
+                                            <td>Bulb</td>
+                                            <td id="bulb-ampe">25</td>
+                                            <td id="bulb-warn">Good</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fan</td>
+                                            <td id="fan-ampe">25</td>
+                                            <td id="fan-warn">Good</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="settime">
+                            <h2>
+                                Set time:
+                            </h2>
+                            <div class="device-choose">
+                                <select name="device-name" id="device-name">
+                                    <option value="Bulb">Bulb</option>
+                                    <option value="Fan">Fan</option>
+                                    <!-- <option value="Pump">Pump</option> -->
+                                </select>
+                                <select name="device-oper" id="device-oper">
+                                    <option value="OFF">OFF</option>
+                                    <option value="ON">ON</option>
+                                </select>
+                            </div>
+                            <div class="time-select">
+                                <input type="datetime-local" id="datetime-input">
+                                <button id="add-task-button" onclick="addTask()">Add</button>
+                            </div>
+                            <div class="task-head-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Device</th>
+                                            <th>Datetime</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="task-body-table">
+                                <table>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="setvalue">
+                            <h2 style="line-height: 20px;font-weight: 700;font-size: 20px">
+                                Set value:
+                            </h2>
+                            <span style="align-self: center; margin-top: 1rem; margin-bottom: 1.5rem;">Import value for
+                                auto control. In this mode, manual control is disable.</span>
+                            <div class="set-temp">
+                                <h1 style="line-height: 20px;font-weight: 700;font-size: 20px">Temperature</h1>
+                                <span style="line-height: 20px;font-weight: 700;font-size: 12px; ">min</span>
+                                <input type="text" id="text-temp-min">
+                                <span style="line-height: 20px;font-weight: 700;font-size: 12px; ">max</span>
+                                <input type="text" id="text-temp-max">
+                                <button type="button" id="temp-submit"
+                                    style="line-height: 20px;font-weight: 700;">Submit</button>
+                            </div>
+                            <div class="set-hum">
+                                <h1 style="line-height: 20px;font-weight: 700;font-size: 20px">Humidity</h1>
+                                <span style="line-height: 20px;font-weight: 700;font-size: 12px; ">min</span>
+                                <input type="text" id="text-hum-min">
+                                <span style="line-height: 20px;font-weight: 700;font-size: 12px; ">max</span>
+                                <input type="text" id="text-hum-max">
+                                <button type="button" id="hum-submit"
+                                    style="line-height: 20px;font-weight: 700;">Submit</button>
+                            </div>
+                            <div class="set-temp">
+                                <h1 style="line-height: 20px;font-weight: 700;font-size: 20px">Brightness</h1>
+                                <span style="line-height: 20px;font-weight: 700;font-size: 12px; ">min</span>
+                                <input type="text" id="text-bright-min">
+                                <span style="line-height: 20px;font-weight: 700;font-size: 12px; ">max</span>
+                                <input type="text" id="text-bright-max">
+                                <button type="button" id="bright-submit"
+                                    style="line-height: 20px;font-weight: 700;">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- <section id="camera" style="display:none">
+                <div class="cam-content">
+                    <div class="cam-display">
+                        <img id="photo" style="height: 550px;">
+                    </div>
+                    <div class="setcam">
+                        <h1>Camera</h1>
+                        <h3>Choose capture time.</h3>
+                        <div class="capture-time">
+                            <div>
+                                <input type="radio" id="radio5s" name="button_captime" value="30" checked />
+                                <label for="radio5s">30 seconds</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio1m" name="button_captime" value="60" />
+                                <label for="radio1m">1 minute</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio2m" name="button_captime" value="120" />
+                                <label for="radio2m">2 minutes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio5m" name="button_captime" value="300" checked />
+                                <label for="radio5m">5 minutes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio10m" name="button_captime" value="600" />
+                                <label for="radio10m">10 minutes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio20m" name="button_captime" value="1200" />
+                                <label for="radio20m">20 minutes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio30m" name="button_captime" value="1800" checked />
+                                <label for="radio30m">30 minutes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio1h" name="button_captime" value="3600" />
+                                <label for="radio1h">1 hour</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio2h" name="button_captime" value="7200" />
+                                <label for="radio2h">2 hours</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio3h" name="button_captime" value="10800" />
+                                <label for="radio3h">3 hours</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio4h" name="button_captime" value="14400" />
+                                <label for="radio4h">4 hours</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="radio5h" name="button_captime" value="18000" />
+                                <label for="radio5h">5 hours</label>
+                            </div>
+                        </div>
+                        <button class="captureNow" onclick="captureNow()">Capture Now</button>
+                    </div>
+                </div>
+            </section> -->
+        </main>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
